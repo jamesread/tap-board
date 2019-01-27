@@ -1,5 +1,5 @@
-Dice Helper
-~~~~~~~~~~~
+Dice Helper App
+~~~~~~~~~~~~~~~
 
 A simple web app for rolling dice. 
 
