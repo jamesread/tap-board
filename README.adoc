@@ -1,7 +1,7 @@
 Dice Helper App
 ~~~~~~~~~~~~~~~
 
-A simple web app for rolling dice. 
+A simple web app for rolling dice. Use it at http://diceapp.uk. 
 
 image::screenshot.png[]
 
