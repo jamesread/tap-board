@@ -1,0 +1,8 @@
+Dice Helper
+~~~~~~~~~~~
+
+A simple web app for rolling dice. 
+
+image::screenshot.png[]
+
+Uses Web Components, Responsive Layout, etc. 
