@@ -1,0 +1,16 @@
+{
+  "name": "dice-helper-app",
+  "version": "1.0.0",
+  "description": "Dice Helper App ~~~~~~~~~~~~~~~",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesread/dice-helper-app.git"
+  },
+  "author": "jamesread",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesread/dice-helper-app/issues"
+  },
+  "homepage": "https://github.com/jamesread/dice-helper-app#readme"
+}
