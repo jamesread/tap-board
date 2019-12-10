@@ -6,3 +6,29 @@ A simple web app for rolling dice. Use it at http://diceapp.uk.
 image::screenshot.png[]
 
 Uses Web Components, Responsive Layout, etc. 
+
+Hosted version
+==============
+
+There is a hosted an up to date version here; http://diceapp.uk
+
+
+Running under Apache / any static webserver
+===========================================
+
+Simply serve this project directory as public html, with `index.html` as the
+entry point.
+
+
+Running with Node
+=================
+
+You can run this with node quite happily. Simply execute `node-http-server.js`
+under Linux, or run `node .` in the directory. Node that the app is fully
+static, and does not require node to function.
+
+Running on OpenShift
+====================
+
+Works just fine with the [Node] S2I builder in OpenShift (tested with v4.2). If
+you want to select a builder, then "JS modern web app" should work.
