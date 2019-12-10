@@ -5,7 +5,7 @@
   "main": "node-http-server.js",
   "scripts": {
 	"start": "node .",
-	"build": "echo build"
+	"build": "rm -rf build && mkdir build && cp index.html build/ && cp -r package.json resources favicon.png layouts.js node-http-server.js util.js build/"
   },
   "repository": {
     "type": "git",
