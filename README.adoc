@@ -1,7 +1,7 @@
-Dice Helper App
+Tap Board
 ~~~~~~~~~~~~~~~
 
-A simple web app for rolling dice. Use it at http://diceapp.uk. 
+An app for building simple touch-based tools. Use it at https://tap-board.5apps.com
 
 image::screenshot.png[]
 
@@ -10,7 +10,7 @@ Uses Web Components, Responsive Layout, etc.
 Hosted version
 ==============
 
-There is a hosted an up to date version here; http://diceapp.uk
+There is a hosted an up to date version here; https://tap-board.5apps.com
 
 
 Running under Apache / any static webserver
