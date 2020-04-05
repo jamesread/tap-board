@@ -1,0 +1,24 @@
+{
+  "name": "dice-helper-app",
+  "version": "1.0.0",
+  "description": "Dice Helper App ~~~~~~~~~~~~~~~",
+  "main": "node-http-server.js",
+  "scripts": {
+	"start": "node .",
+	"build": "rm -rf build && mkdir build && cp index.html build/ && cp -r package.json resources favicon.png layouts.js node-http-server.js util.js build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesread/dice-helper-app.git"
+  },
+  "author": "jamesread",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesread/dice-helper-app/issues"
+  },
+  "homepage": "https://github.com/jamesread/dice-helper-app#readme",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "serve-static": "^1.14.1"
+  }
+}
