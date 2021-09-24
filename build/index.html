@@ -12,31 +12,24 @@
 	<h1>Tap Board</h1>
 
 
-	<ul>
-		<li><a href = "?game=one">1x &#9861;</a></li>
-		<li><a href = "?game=two">2x &#9861;</a></li>
-		<li><a href = "?game=three">3x &#9861;</a></li>
-		<li><a href = "?game=threetwo">3x &#9861, 2x &#9861</a></li>
-	</ul>
-
-	<br /> 
-
-	<ul>
-		<li><a href = "#" id = "fullscreenButton">Fullscreen</a>
-		<li><a href = "#" id = "closeMenuButton">Close Menu</a>
-		<li><a href = "http://github.com/jamesread/dice-helper">GitHub</a>
-	</ul>
+	<nav>
+		<button id = "fullscreenButton">Fullscreen</a>
+		<button id = "closeMenuButton">Close Menu</a>
+	</nav>
 </div>
 
 <script type = "module">
 import { closeMenu, fullscreen, getQueryVariable } from './util.js';
-import { NormalDice, ThreeTwoDice } from "./layouts.js"
+import "./boards.js"
 
-switch (getQueryVariable("game")) {
-	case 'one': new NormalDice(1); break;
-	case 'two': new NormalDice(2); break;
-	case 'three': new NormalDice(3); break;
-	case 'threetwo': new ThreeTwoDice(); break;
+for (let board in window.boards) {
+	let el = document.createElement("button")
+	el.innerText = board;
+	el.onclick = () => {
+		var cz = new window.boards[board]
+    }
+
+	document.querySelector("nav").appendChild(el)
 }
 
 document.querySelector('#fullscreenButton').onclick = fullscreen;

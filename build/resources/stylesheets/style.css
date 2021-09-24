@@ -1,6 +1,6 @@
 h1 {
 	margin: 0;
-	padding: 0;
+	padding: .5em;
 	margin-bottom: 1em;
 	font-size: 9pt;
 	text-align: left;
@@ -11,79 +11,8 @@ body {
 	text-align: center;
 	font-family: sans-serif;
 	display: flex;
-}
-
-li {
-}
-
-li a, li a:visited {
-	background-color: black;
-	color: white;
-	padding: .4em;
-	text-decoration: none;
-}
-
-@media screen and (orientation:portrait) {
-	body {
-		flex-direction: column;
-	}
-
-	li {
-		display: inline-block;
-		margin-right: 1em;
-	}
-
-	.panel {
-		flex-direction: row;
-		align-items: center;
-	}
-
-	.panel.male {
-		align-items: flex-end;
-	}
-
-}
-
-@media screen and (orientation:landscape) {
-	body {
-	}
-
-	li {
-		margin-bottom: 1em;
-	}
-
-	.panel {
-		flex-direction: column;
-	}
-
-	.panel.male {
-		text-align: right;
-	}
-
-	.panel.female {
-		text-align: left;
-	}
-}
-
-.panel {
-	justify-content: center;
-	display: flex;
-	flex: 1 1;
-	background-color: #dee3e7;
-	padding: 1em;
-	border: 1px solid grey;
-	margin: 1em;
-}
-
-.panel:hover {
-	background-color: beige;
-	cursor: pointer;
-}
-
-x-dice {
-	display: block;
-	font-size: 6em;
-	flex: 0 0;
+	height: 100%;
+	margin: 0;
 }
 
 ul {
@@ -92,3 +21,118 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+
+button {
+	background-color: black;
+	color: white;
+	padding: .4em;
+	text-decoration: none;
+	margin: .2em;
+	border: 1px solid black;
+}
+
+hr {
+	display: inline-block;
+}
+
+nav {
+	display: flex;
+	padding: 1em;
+}
+
+.component {
+	justify-content: center;
+	display: flex;
+	flex: 1 1;
+	padding: 1em;
+	border: 1px solid grey;
+	margin: 1em;
+}
+
+@media screen and (orientation:portrait) {
+	body {
+		flex-direction: column;
+	}
+
+	nav {
+		flex-direction: row;
+	}
+
+	button {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	.component {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.component.male {
+		align-items: flex-end;
+	}
+
+	hr {
+		border-left: 1px solid green;
+	}
+
+
+}
+
+@media screen and (orientation:landscape) {
+	body {
+	}
+
+	nav {
+		flex-direction: column;
+	}
+
+	button {
+		margin-bottom: 1em;
+	}
+
+	.component {
+		flex-direction: column;
+
+	}
+
+	.component.male {
+		text-align: right;
+	}
+
+	.component.female {
+		text-align: left;
+	}
+}
+
+.panel {
+	background-color: #dee3e7;
+}
+
+.panel:hover {
+	background-color: beige;
+	cursor: pointer;
+}
+
+.component {
+	user-select: none;
+}
+
+x-dice {
+	display: block;
+	font-size: 6em;
+	flex: 0 0;
+}
+
+x-label {
+	font-size: larger;
+	font-weight: bold;
+	padding: 2em;
+	border: 0 !important;
+}
+
+x-button:active {
+	background-color: beige;
+}
+
+
