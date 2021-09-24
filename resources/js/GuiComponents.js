@@ -1,22 +1,14 @@
-export class Panel extends HTMLElement {
+export class Component extends HTMLElement {
 	constructor() {
 		super();
-
 	}
 
-	connectedCallback() {
-		this.classList.add("panel");
-	}
+  connectedCallback() {
+		this.classList.add("component");
+  }
 }
 
-customElements.define("x-panel", Panel);
-
-class PanelToolbar extends HTMLElement {
-}
-
-customElements.define("x-panel-toolbar", PanelToolbar);
-
-export class DicePanel extends Panel {
+export class DicePanelComponent extends Component {
 	constructor() {
 		super();
 
@@ -45,4 +37,15 @@ export class DicePanel extends Panel {
 	}
 }
 
-customElements.define("x-dice-panel", DicePanel);
+customElements.define("x-dice-panel", DicePanelComponent);
+
+class LabelComponent extends Component {
+
+}
+
+customElements.define("x-label", LabelComponent);
+
+class ButtonComponent extends Component {
+}
+
+customElements.define("x-button", ButtonComponent);
