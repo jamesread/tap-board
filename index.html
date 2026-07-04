@@ -1,41 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel = "stylesheet" type = "text/css" href = "resources/stylesheets/style.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="/favicon.png" type="image/png" />
 	<title>Tap Board</title>
-	<link rel = "shortcut icon" href = "favicon.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		(function () {
+			const stored = localStorage.getItem('tapboard-theme')
+			const theme = stored === 'light' || stored === 'dark'
+				? stored
+				: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+			document.documentElement.setAttribute('data-theme', theme)
+		})()
+	</script>
 </head>
-
 <body>
-
-<div id = "menu">
-	<h1>Tap Board</h1>
-
-
-	<nav>
-		<button id = "fullscreenButton">Fullscreen</a>
-		<button id = "closeMenuButton">Close Menu</a>
-	</nav>
-</div>
-
-<script type = "module">
-import { closeMenu, fullscreen, getQueryVariable } from './util.js';
-import "./boards.js"
-
-for (let board in window.boards) {
-	let el = document.createElement("button")
-	el.innerText = board;
-	el.onclick = () => {
-		var cz = new window.boards[board]
-    }
-
-	document.querySelector("nav").appendChild(el)
-}
-
-document.querySelector('#fullscreenButton').onclick = fullscreen;
-document.querySelector('#closeMenuButton').onclick = closeMenu;
-
-</script>
+	<div id="app"></div>
+	<script type="module" src="/resources/vue/main.js"></script>
 </body>
-
 </html>
