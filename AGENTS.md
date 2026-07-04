@@ -150,7 +150,7 @@ Reuse `Dice`, `DicePanel`, and PicoCrank `Section` where possible.
 - **Do not commit** unless the user asks
 - **Verify** with `npm run build` after substantive changes
 - **No backend** — do not add APIs, auth, or persistence unless explicitly requested
-- README (`README.adoc`) may lag the Vue migration; treat `resources/vue/` and this file as source of truth
+- README (`README.md`) may lag the Vue migration; treat `resources/vue/` and this file as source of truth
 
 ### Commits and releases
 
