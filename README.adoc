@@ -1,28 +1,77 @@
-= Tap Board
+++++
+<div align="center">
+  <img alt="project logo" src="logo.svg" width="128" />
+  <h1>Tap Board</h1>
 
-An app for building simple touch-based tools. Use it at https://tap-board.5apps.com
+  A touch-first web app with simple helpers for board-game players — roll dice, track scores, count life totals, time turns, and more.
+
+[![Maturity Badge](https://img.shields.io/badge/maturity-Production-brightgreen)](#none)
+[![Demo](https://img.shields.io/badge/demo-tap--board.5apps.com-blue)](https://tap-board.5apps.com)
+[![Container](https://img.shields.io/badge/container-ghcr.io-blue)](https://github.com/jamesread/tap-board/pkgs/container/tap-board)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Vue](https://img.shields.io/badge/Vue-3-42b883)](https://vuejs.org/)
+
+</div>
+++++
 
 image::screenshot.png[]
 
-Uses Web Components, Responsive Layout, etc. 
+Built with Vue 3 and link:https://github.com/jamesread/picocrank[PicoCrank]. The app is fully static; no backend is required.
+
+== Examples
+
+Each helper is a full-screen board with large tap targets, designed for use on a phone or tablet during play.
+
+.Two dice — tap anywhere to roll; the sum is shown below
+image::screenshots/two-dice.png[]
+
+.Life counter — track life totals for two or more players
+image::screenshots/life-counter.png[]
+
+.Turn timer — preset countdowns for timed turns
+image::screenshots/turn-timer.png[]
+
+.Three and two — asymmetric dice panels (e.g. 3 red / 2 black)
+image::screenshots/three-and-two.png[]
 
 == Hosted version
 
-There is a hosted an up to date version here; https://tap-board.5apps.com
+There is a hosted, up-to-date version at https://tap-board.5apps.com
 
-== Running under Apache / any static webserver
+== Running with Docker
 
-Simply serve this project directory as public html, with `index.html` as the
-entry point.
+Pre-built images are published to link:https://github.com/jamesread/tap-board/pkgs/container/tap-board[GitHub Container Registry]:
 
+[source,bash]
+----
+docker pull ghcr.io/jamesread/tap-board:latest
+docker run --rm -p 8080:8080 ghcr.io/jamesread/tap-board:latest
+----
 
-== Running with Node
+Open http://localhost:8080[localhost:8080].
 
-You can run this with node quite happily. Simply execute `node-http-server.js`
-under Linux, or run `node .` in the directory. Node that the app is fully
-static, and does not require node to function.
+=== Build locally
 
-== Running on OpenShift
+[source,bash]
+----
+docker build -t tap-board .
+docker run --rm -p 8080:8080 tap-board
+----
 
-Works just fine with the [Node] S2I builder in OpenShift (tested with v4.2). If
-you want to select a builder, then "JS modern web app" should work.
+Or use the Makefile:
+
+[source,bash]
+----
+make container    # build and run locally
+make publish      # build and push to ghcr.io (requires login)
+----
+
+== Screenshots
+
+Screenshots are captured with link:https://github.com/jamesread/repo-common[repo-helper] using `screenshots.ini`:
+
+[source,bash]
+----
+docker run --rm -p 8765:8080 ghcr.io/jamesread/tap-board:latest &
+repo-helper screenshot --config screenshots.ini
+----

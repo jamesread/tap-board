@@ -18,6 +18,16 @@ npm run preview  # serve dist/ locally
 npm start        # node static server on PORT (default 8080), serves dist/ if present
 ```
 
+Docker (preferred for production):
+
+```bash
+docker build -t tap-board .
+docker run --rm -p 8080:8080 tap-board
+# or: make container
+```
+
+Images are published to `ghcr.io/jamesread/tap-board` on pushes to `master`.
+
 - Entry: `index.html` → `resources/vue/main.js` → `resources/vue/App.vue`
 - Production build output: `dist/`
 - `node-http-server.js` serves `dist/` when it exists, otherwise the repo root
@@ -29,8 +39,10 @@ npm start        # node static server on PORT (default 8080), serves dist/ if pr
 ```
 resources/
   vue/
-    App.vue              # Shell: PicoCrank layout, sidebar nav, board switching
+    App.vue              # Shell: PicoCrank layout, sidebar nav, router-view
     main.js              # Vue bootstrap
+    router.js            # vue-router routes (one per board)
+    views/Home.vue       # Landing page
     util.js              # Shared helpers (e.g. fullscreen)
     boards/              # One Vue component per helper / “board”
       NormalDiceBoard.vue
@@ -41,12 +53,13 @@ resources/
     style.css            # App-specific styles (#app layout, board layouts)
 index.html
 vite.config.js
+Dockerfile
 node-http-server.js
 package.json
 AGENTS.md
 ```
 
-Static assets referenced from the app (e.g. `favicon.png`) live at the project root or under `public/` as added.
+Static assets (e.g. `logo.svg`) live under `public/` for the app and at the repo root for the README.
 
 ---
 
@@ -61,9 +74,11 @@ Follows the **PicoCrank app layout**:
 - `#layout` — flex row containing `Sidebar` and `#content`
 - `#content` — `main` plus empty `footer` (matches PicoCrank example)
 
-Boards are selected from the sidebar via `navigation.addCallback(...)`. The active board is rendered with `<component :is="activeBoard" />`.
+Boards are selected from the sidebar via `navigation.addRouterLink(...)` in `App.vue` (registered in `onMounted` after `nextTick`). The active board is rendered with `<router-view />`.
 
-Register new boards in the `boards` map and add a sidebar entry in `onMounted`.
+Register new boards in `router.js` and add a matching `addRouterLink` call in `App.vue`.
+
+**vue-router:** keep a single copy — `package.json` uses `overrides` and `vite.config.js` sets `resolve.dedupe` so PicoCrank shares the app router instance.
 
 **Layout requirement:** Vue mounts into `#app`, which sits between `body` and the PicoCrank layout. `resources/stylesheets/style.css` must keep `#app` as a column flex container with `flex-grow: 1` so the sidebar fills the viewport below the header. See the PicoCrank `App.vue` example if layout regresses.
 
@@ -107,10 +122,10 @@ Besides board links, the app exposes:
 ## Adding a new helper / board
 
 1. Create `resources/vue/boards/YourBoard.vue` — keep it focused on one job
-2. Import it in `App.vue` and add to the `boards` map
-3. Register a sidebar callback in `onMounted`:
+2. Add a route in `resources/vue/router.js`
+3. Register a sidebar link in `App.vue` (`onMounted` / `nextTick`):
    ```js
-   navigation.value.addCallback('YourBoard', () => selectBoard('YourBoard'), { icon: DiceIcon })
+   navigation.value.addRouterLink('YourBoard')
    ```
 4. Add styles to `resources/stylesheets/style.css` only when PicoCrank utilities are insufficient
 5. Test on a narrow viewport (phone) and both orientations
@@ -137,13 +152,19 @@ Reuse `Dice`, `DicePanel`, and PicoCrank `Section` where possible.
 - **No backend** — do not add APIs, auth, or persistence unless explicitly requested
 - README (`README.adoc`) may lag the Vue migration; treat `resources/vue/` and this file as source of truth
 
+### Commits and releases
+
+- **Conventional commits** — enforced locally by Husky (`commit-msg` → commitlint). Format: `type(scope): subject` (e.g. `feat(dice): add d8 board`). Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
+- **semantic-release** — on push to `master`, `.github/workflows/release.yml` analyses commits, bumps `package.json`, updates `CHANGELOG.md`, tags `v*`, and creates a GitHub Release. Release commits use `[skip ci]` to avoid duplicate workflow runs.
+- **Container tags** — `build.yml` pushes `ghcr.io/jamesread/tap-board:latest` on every `master` push; semver tags (`v1.2.3`) are pushed when semantic-release creates a release tag.
+
 ---
 
 ## Useful commands
 
 ```bash
-# Find board and component usage
-rg "selectBoard|DicePanel|addCallback" resources/vue/
+# Find board routes and sidebar registration
+rg "addRouterLink|DicePanel" resources/vue/
 
 # List helpers
 ls resources/vue/boards/

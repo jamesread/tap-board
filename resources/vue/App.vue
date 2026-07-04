@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { HugeiconsIcon } from '@hugeicons/vue'
 import { ArrowExpandIcon, Cancel01Icon, Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons'
 
@@ -61,7 +61,7 @@ import 'femtocrank/style.css'
 import '../stylesheets/theme.css'
 import '../stylesheets/style.css'
 
-import logoUrl from '/favicon.png'
+import logoUrl from '/logo.svg'
 
 const navigation = ref(null)
 const sidebar = ref(null)
@@ -84,28 +84,31 @@ function closeMenu () {
 }
 
 onMounted(() => {
-  if (navigation.value) {
-    navigation.value.addRouterLink('SingleDice')
-    navigation.value.addRouterLink('TwoDice')
-    navigation.value.addRouterLink('ThreeTwo')
-    navigation.value.addRouterLink('DicePool')
-    navigation.value.addRouterLink('TwentySided')
-    navigation.value.addSeparator('scoring')
-    navigation.value.addRouterLink('Counter')
-    navigation.value.addRouterLink('ScorePad')
-    navigation.value.addRouterLink('LifeCounter')
-    navigation.value.addSeparator('utilities')
-    navigation.value.addRouterLink('TurnTimer')
-    navigation.value.addRouterLink('CoinFlip')
-    navigation.value.addRouterLink('FirstPlayer')
-    navigation.value.addSeparator('actions')
-    navigation.value.addCallback('Fullscreen', fullscreen, { icon: ArrowExpandIcon, name: 'fullscreen' })
-    navigation.value.addCallback('Close Menu', closeMenu, { icon: Cancel01Icon, name: 'close-menu' })
-  }
+  nextTick(() => {
+    if (navigation.value) {
+      navigation.value.addRouterLink('Home')
+      navigation.value.addRouterLink('SingleDice')
+      navigation.value.addRouterLink('TwoDice')
+      navigation.value.addRouterLink('ThreeTwo')
+      navigation.value.addRouterLink('DicePool')
+      navigation.value.addRouterLink('TwentySided')
+      navigation.value.addSeparator('scoring')
+      navigation.value.addRouterLink('Counter')
+      navigation.value.addRouterLink('ScorePad')
+      navigation.value.addRouterLink('LifeCounter')
+      navigation.value.addSeparator('utilities')
+      navigation.value.addRouterLink('TurnTimer')
+      navigation.value.addRouterLink('CoinFlip')
+      navigation.value.addRouterLink('FirstPlayer')
+      navigation.value.addSeparator('actions')
+      navigation.value.addCallback('Fullscreen', fullscreen, { icon: ArrowExpandIcon, name: 'fullscreen' })
+      navigation.value.addCallback('Close Menu', closeMenu, { icon: Cancel01Icon, name: 'close-menu' })
+    }
 
-  if (sidebar.value) {
-    sidebar.value.open()
-    sidebar.value.stick()
-  }
+    if (sidebar.value) {
+      sidebar.value.open()
+      sidebar.value.stick()
+    }
+  })
 })
 </script>

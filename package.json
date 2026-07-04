@@ -1,24 +1,25 @@
 {
-  "name": "dice-helper-app",
+  "name": "tap-board",
   "version": "1.0.0",
-  "description": "Dice Helper App ~~~~~~~~~~~~~~~",
+  "description": "Touch-first web helpers for board-game players",
   "main": "node-http-server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node node-http-server.js"
+    "start": "node node-http-server.js",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesread/dice-helper-app.git"
+    "url": "git+https://github.com/jamesread/tap-board.git"
   },
   "author": "jamesread",
-  "license": "ISC",
+  "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/jamesread/dice-helper-app/issues"
+    "url": "https://github.com/jamesread/tap-board/issues"
   },
-  "homepage": "https://github.com/jamesread/dice-helper-app#readme",
+  "homepage": "https://github.com/jamesread/tap-board#readme",
   "dependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
     "connect": "^3.7.0",
@@ -27,6 +28,18 @@
     "unplugin-vue-components": "^32.1.0",
     "vite": "^8.1.3",
     "vue": "^3.5.39",
-    "vue-router": "^4.6.4"
+    "vue-router": "^5.1.0"
+  },
+  "overrides": {
+    "vue-router": "$vue-router"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.0",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.9",
+    "husky": "^9.1.7",
+    "semantic-release": "^25.0.5"
   }
 }

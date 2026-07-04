@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.github
+build
+screenshots
+screenshot.png
+screenshots.ini
+AGENTS.md
+*.md
+**/*.swp
+**/*.swo

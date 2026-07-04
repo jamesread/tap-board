@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 const PORT = process.env.PORT || 8080
+const HOST = process.env.HOST || '0.0.0.0'
 
 const connect = require('connect')
 const serveStatic = require('serve-static')
@@ -24,7 +25,7 @@ connect()
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     fs.createReadStream(indexFile).pipe(res)
   })
-  .listen(PORT, () => {
-    console.log('Running on port: ' + PORT)
+  .listen(PORT, HOST, () => {
+    console.log('Running on http://' + HOST + ':' + PORT)
     console.log('Serving from: ' + staticRoot)
   })
