@@ -8,7 +8,6 @@
   [![Demo](https://img.shields.io/badge/demo-tap--board.5apps.com-blue)](https://tap-board.5apps.com)
   [![Container](https://img.shields.io/badge/container-ghcr.io-blue)](https://github.com/jamesread/tap-board/pkgs/container/tap-board)
   [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-  [![Vue](https://img.shields.io/badge/Vue-3-42b883)](https://vuejs.org/)
 </div>
 
 ![screenshot](screenshot.png)
