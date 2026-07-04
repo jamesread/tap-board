@@ -7,9 +7,22 @@ h1 {
 }
 
 body {
+	font-family: sans-serif;
+	display: grid;
+}
+
+header {
+	grid-row: header;
+}
+
+nav {
+	grid-row: nav;
+}
+
+content {
+	grid-area: content;
 	vertical-align: middle;
 	text-align: center;
-	font-family: sans-serif;
 	display: flex;
 }
 
@@ -21,10 +34,23 @@ li a, li a:visited {
 	color: white;
 	padding: .4em;
 	text-decoration: none;
+	border: 1px solid black;
+}
+
+li a:hover {
+	background-color: LimeGreen;
+	color: black;
 }
 
 @media screen and (orientation:portrait) {
 	body {
+		grid: 
+			'header'
+			'nav'
+			'content';
+	}
+
+	content {
 		flex-direction: column;
 	}
 
@@ -46,6 +72,13 @@ li a, li a:visited {
 
 @media screen and (orientation:landscape) {
 	body {
+		grid:
+			'header header'
+			'nav content';
+		grid-template-columns: minmax(5%, 15%) auto;
+	}
+
+	content {
 	}
 
 	li {
