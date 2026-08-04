@@ -170,12 +170,4 @@
 [data-theme="dark"] .annotation-val {
   color: #ddd;
 }
-
-[data-theme="dark"] .navigation-links a {
-  color: #f8f9fa;
-}
-
-[data-theme="dark"] .separator {
-  background-color: #444;
-}
 }
