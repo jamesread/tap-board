@@ -1,6 +1,6 @@
 {
   "name": "tap-board",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Touch-first web helpers for board-game players",
   "main": "node-http-server.js",
   "scripts": {

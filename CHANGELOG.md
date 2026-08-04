@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jamesread/tap-board/compare/v1.0.0...v1.1.0) (2026-08-04)
+
+
+### Features
+
+* **nav:** sidebar sections and quick search ([48b4b30](https://github.com/jamesread/tap-board/commit/48b4b3066e2ce970084f56fdda11c2c131d62868))
+
 # 1.0.0 (2026-07-04)
 
 
