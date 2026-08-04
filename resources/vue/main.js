@@ -1,6 +1,4 @@
-import { initTheme } from './theme.js'
-
-initTheme()
+import 'picocrank/vue/composables/useTheme.js'
 
 import { createApp } from 'vue'
 import App from './App.vue'

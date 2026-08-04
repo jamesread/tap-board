@@ -7,6 +7,7 @@
 			:show-branding="true"
 			:top-bar-enabled="false"
 			:breadcrumbs="false"
+			:theme-toggle-enabled="true"
 			@toggle-sidebar="toggleSidebar"
 		>
 			<template #toolbar>
@@ -17,22 +18,6 @@
 					:max-results="15"
 					:auto-import-routes="false"
 				/>
-			</template>
-
-			<template #user-info>
-				<button
-					type="button"
-					class="theme-toggle-btn neutral"
-					:aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-					@click="onToggleTheme"
-				>
-					<HugeiconsIcon
-						:icon="theme === 'dark' ? Sun01Icon : Moon02Icon"
-						width="1em"
-						height="1em"
-						:stroke-width="3"
-					/>
-				</button>
 			</template>
 		</Header>
 
@@ -56,8 +41,7 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
-import { HugeiconsIcon } from '@hugeicons/vue'
-import { ArrowExpandIcon, Cancel01Icon, Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons'
+import { ArrowExpandIcon, Cancel01Icon } from '@hugeicons/core-free-icons'
 
 import Header from 'picocrank/vue/components/Header.vue'
 import Navigation from 'picocrank/vue/components/Navigation.vue'
@@ -65,7 +49,6 @@ import QuickSearch from 'picocrank/vue/components/QuickSearch.vue'
 import Sidebar from 'picocrank/vue/components/Sidebar.vue'
 
 import { fullscreen } from './util.js'
-import { resolveTheme, toggleTheme as switchTheme } from './theme.js'
 
 import 'picocrank/styles.css'
 import '../stylesheets/theme.css'
@@ -77,11 +60,6 @@ const navigation = ref(null)
 const sidebar = ref(null)
 const quickSearch = ref(null)
 const menuVisible = ref(true)
-const theme = ref(resolveTheme())
-
-function onToggleTheme () {
-  theme.value = switchTheme(theme.value)
-}
 
 function toggleSidebar () {
   if (sidebar.value) {

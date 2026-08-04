@@ -606,18 +606,3 @@ main {
   background-color: #488448;
   color: #fff;
 }
-
-.theme-toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5em;
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-}
-
-.theme-toggle-btn:hover {
-  background-color: var(--header-hover-background-color);
-}

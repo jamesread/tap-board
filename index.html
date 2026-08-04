@@ -7,10 +7,13 @@
 	<title>Tap Board</title>
 	<script>
 		(function () {
-			const stored = localStorage.getItem('tapboard-theme')
-			const theme = stored === 'light' || stored === 'dark'
+			const stored = localStorage.getItem('picocrank-theme')
+			const preference = stored === 'light' || stored === 'dark' || stored === 'auto'
 				? stored
-				: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+				: 'auto'
+			const theme = preference === 'auto'
+				? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+				: preference
 			document.documentElement.setAttribute('data-theme', theme)
 		})()
 	</script>
