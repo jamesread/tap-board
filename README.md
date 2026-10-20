@@ -5,12 +5,12 @@
   <p>A touch-first web app with simple helpers for board-game players — roll dice, track scores, count life totals, time turns, and more.</p>
 
   [![Maturity Badge](https://img.shields.io/badge/maturity-Production-brightgreen)](#none)
-  [![Demo](https://img.shields.io/badge/demo-tap--board.5apps.com-blue)](https://tap-board.5apps.com)
+  [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue)](https://jamesread.github.io/tap-board/)
   [![Container](https://img.shields.io/badge/container-ghcr.io-blue)](https://github.com/jamesread/tap-board/pkgs/container/tap-board)
   [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 </div>
 
-![screenshot](screenshot.png)
+![Tap Board on desktop, rolling two dice](var/marketing/screenshots/home.png)
 
 Built with Vue 3 and [PicoCrank](https://github.com/jamesread/picocrank). The app is fully static; no backend is required.
 
@@ -18,25 +18,39 @@ Built with Vue 3 and [PicoCrank](https://github.com/jamesread/picocrank). The ap
 
 Each helper is a full-screen board with large tap targets, designed for use on a phone or tablet during play.
 
-**Two dice** — tap anywhere to roll; the sum is shown below
+### Dice
 
-![Two dice](screenshots/two-dice.png)
+Tap anywhere on a board to roll.
 
-**Life counter** — track life totals for two or more players
+| Two dice | Three & two | Dice pool | Twenty-sided die |
+|---|---|---|---|
+| <img alt="Two dice" src="var/marketing/screenshots/two-dice.png" width="200" /> | <img alt="Three & two" src="var/marketing/screenshots/three-and-two.png" width="200" /> | <img alt="Dice pool" src="var/marketing/screenshots/dice-pool.png" width="200" /> | <img alt="Twenty-sided die" src="var/marketing/screenshots/twenty-sided-die.png" width="200" /> |
 
-![Life counter](screenshots/life-counter.png)
+### Scoring
 
-**Turn timer** — preset countdowns for timed turns
+Tap a player's name to rename them; press and hold `+` / `−` to change values quickly.
 
-![Turn timer](screenshots/turn-timer.png)
+| Counter | Score pad | Life counter |
+|---|---|---|
+| <img alt="Counter" src="var/marketing/screenshots/counter.png" width="200" /> | <img alt="Score pad" src="var/marketing/screenshots/score-pad.png" width="200" /> | <img alt="Life counter" src="var/marketing/screenshots/life-counter.png" width="200" /> |
 
-**Three and two** — asymmetric dice panels (e.g. 3 red / 2 black)
+### Utilities
 
-![Three and two](screenshots/three-and-two.png)
+| Turn timer | Coin flip | First player |
+|---|---|---|
+| <img alt="Turn timer" src="var/marketing/screenshots/turn-timer.png" width="200" /> | <img alt="Coin flip" src="var/marketing/screenshots/coin-flip.png" width="200" /> | <img alt="First player" src="var/marketing/screenshots/first-player.png" width="200" /> |
+
+### Dark mode
+
+Use the theme toggle in the header to switch between light and dark.
+
+| Desktop | Phone |
+|---|---|
+| <img alt="Score pad in dark mode on desktop" src="var/marketing/screenshots/home-dark.png" width="600" /> | <img alt="Life counter in dark mode on a phone" src="var/marketing/screenshots/life-counter-dark.png" width="200" /> |
 
 ## Hosted version
 
-There is a hosted, up-to-date version at https://tap-board.5apps.com
+There is a hosted, up-to-date version at https://jamesread.github.io/tap-board/ — deployed from `master` by the `pages` workflow.
 
 ## Running with Docker
 
@@ -65,9 +79,5 @@ make publish      # build and push to ghcr.io (requires login)
 
 ## Screenshots
 
-Screenshots are captured with [repo-helper](https://github.com/jamesread/repo-common) using `screenshots.ini`:
-
-```bash
-docker run --rm -p 8765:8080 ghcr.io/jamesread/tap-board:latest &
-repo-helper screenshot --config screenshots.ini
-```
+Screenshots use fictional game state and are regenerated with `make screenshots`
+(see [`var/marketing/screenshots`](var/marketing/screenshots/README.md)).

@@ -4,7 +4,7 @@ Tap Board is a touch-first web app for people playing board games. It offers sim
 
 The UI is built with **Vue 3** and **[PicoCrank](https://github.com/jamesread/picocrank)** (FemtoCrank CSS). There is no backend API; the app is fully static.
 
-Hosted example: https://tap-board.5apps.com
+Hosted on GitHub Pages: https://jamesread.github.io/tap-board/ (built and deployed by `.github/workflows/pages.yml` on pushes to `master`, with `BASE_PATH=/tap-board/`)
 
 ---
 

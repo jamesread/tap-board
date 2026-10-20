@@ -3,3 +3,4 @@ node_modules
 **/*.swo
 dist
 **/__pycache__
+var/marketing/screenshots/tmp/

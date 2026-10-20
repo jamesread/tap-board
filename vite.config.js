@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
+  // GitHub Pages serves the app from /tap-board/; everything else uses /.
+  base: process.env.BASE_PATH || '/',
   resolve: {
     dedupe: ['vue', 'vue-router'],
   },

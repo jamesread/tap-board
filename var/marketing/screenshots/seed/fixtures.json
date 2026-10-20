@@ -1,0 +1,17 @@
+{
+  "_comment": "Fictional game state for marketing screenshots. Names are made up.",
+  "random_seed": 20261020,
+  "score_pad": [
+    {"name": "Ada", "score": 42},
+    {"name": "Bram", "score": 37},
+    {"name": "Cleo", "score": 51},
+    {"name": "Dev", "score": 28}
+  ],
+  "life_counter": [
+    {"name": "Ada", "life": 17},
+    {"name": "Bram", "life": 12}
+  ],
+  "counter": 64,
+  "first_player": {"players": 5},
+  "turn_timer_preset": "2 min"
+}

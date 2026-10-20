@@ -2,7 +2,7 @@ DATE := $(shell date +%s)
 IMAGE := ghcr.io/jamesread/tap-board:$(DATE)
 IMAGE_LATEST := ghcr.io/jamesread/tap-board:latest
 
-.PHONY: image container publish
+.PHONY: image container publish screenshots
 
 image:
 	docker build . -t $(IMAGE) -t $(IMAGE_LATEST)
@@ -13,3 +13,6 @@ container: image
 publish: image
 	docker push $(IMAGE)
 	docker push $(IMAGE_LATEST)
+
+screenshots:
+	$(MAKE) -wC var/marketing/screenshots
